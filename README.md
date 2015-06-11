@@ -7,7 +7,7 @@ Make sure select "copy if needed"
 
 #Common usage
 
-Objective-C
+**Objective-C**
 ```obj-c
 [ProductManager sharedManager] getProductWithID:@abc onSuccess:^(NSArray *products){
    //do something
@@ -18,7 +18,7 @@ Objective-C
    }
 ```
 
-Swift
+**Swift**
 
 After copied .h and .m files into your project file, do `import "UIViewController+Alert.h` in your bridging file.
 ```swift
