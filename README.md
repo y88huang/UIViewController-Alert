@@ -7,6 +7,7 @@ Make sure select "copy if needed"
 
 #Common usage
 
+Objective-C
 ```obj-c
 [ProductManager sharedManager] getProductWithID:@abc onSuccess:^(NSArray *products){
    //do something
@@ -15,4 +16,11 @@ Make sure select "copy if needed"
                        message:error.localizedDescription
             dismissButtonTitle:@"dismiss"];
    }
+```
+
+Swift
+
+After copied .h and .m files into your project file, do `import "UIViewController+Alert.h` in your bridging file.
+```swift
+   self.showAlertWithTitle("Hello", message: "some message")
 ```
