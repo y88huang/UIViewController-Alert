@@ -19,6 +19,7 @@ Objective-C
 ```
 
 Swift
+
 After copied .h and .m files into your project file, do `import "UIViewController+Alert.h` in your bridging file.
 ```swift
    self.showAlertWithTitle("Hello", message: "some message")
