@@ -12,15 +12,25 @@
 
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message dismissButtonTitle:(NSString *)buttonTitle
 {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:buttonTitle ? buttonTitle : @"OK" style:UIAlertActionStyleCancel handler:nil];
-    [alertController addAction:action];
-    [self presentViewController:alertController animated:YES completion:nil];
+    [self showAlertWithTitle:title message:message dismissButtonTitle:buttonTitle completion:nil];
 }
 
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message
 {
     [self showAlertWithTitle:title message:message dismissButtonTitle:nil];
+}
+
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message dismissButtonTitle:(NSString *)buttonTitle completion:(void (^)(UIAlertAction *action))handler
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:buttonTitle ? buttonTitle : @"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        if (handler)
+        {
+            handler(action);
+        }
+    }];
+    [alertController addAction:action];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

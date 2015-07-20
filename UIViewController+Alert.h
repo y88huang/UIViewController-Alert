@@ -12,5 +12,6 @@
 
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message;
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message dismissButtonTitle:(NSString *)buttonTitle;
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message dismissButtonTitle:(NSString *)buttonTitle completion:(void (^)(UIAlertAction *action))handler;
 
 @end
