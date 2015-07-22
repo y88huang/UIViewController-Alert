@@ -10,6 +10,8 @@
 
 @interface UIViewController (Alert)
 
+- (void)showAlertWithError:(NSError *)error;
+- (void)showAlertWithError:(NSError *)error completion:(void (^)(UIAlertAction *action))handler;
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message;
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message dismissButtonTitle:(NSString *)buttonTitle;
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message dismissButtonTitle:(NSString *)buttonTitle completion:(void (^)(UIAlertAction *action))handler;

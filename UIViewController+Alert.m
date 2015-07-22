@@ -20,6 +20,16 @@
     [self showAlertWithTitle:title message:message dismissButtonTitle:nil];
 }
 
+- (void)showAlertWithError:(NSError *)error completion:(void (^)(UIAlertAction *action))handler
+{
+    [self showAlertWithTitle:[@(error.code) stringValue] message:error.localizedDescription dismissButtonTitle:@"ok" completion: handler];
+}
+
+- (void)showAlertWithError:(NSError *)error
+{
+    [self showAlertWithError:error completion:nil];
+}
+
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message dismissButtonTitle:(NSString *)buttonTitle completion:(void (^)(UIAlertAction *action))handler
 {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
